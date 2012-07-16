@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "basedump"
+require "basedump/cli"
+require "basedump/nice_output"
+
+Basedump.nice_output { Basedump::CLI.start }

@@ -1,0 +1,6 @@
+*.gem
+.bundle
+Gemfile.lock
+pkg/*
+# cucmber use this file for testing credentials
+.basecamp_credentials
