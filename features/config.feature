@@ -4,12 +4,14 @@ Feature: Configuration
   As an user using basedump
   I should be able to create basedump config file
 
-  Scenario: Local configuration with correct data
-    And I run `basedump configure` interactively
+  Scenario Outline: Local or global configuration
+    And I run `basedump configure <options>` interactively
     And I specify valid basecamp credetials
-    Then the stdout should contain "Basedump local configuration was successfully stored"
-    And a file named ".basedump" should exist
-    And ".basedump" should be valid config file
+    Then the stdout should contain "Basedump <config_type> configuration was successfully stored"
+    And "<config_file>" should be valid config file
     
-    
+  Examples:
+    | options  | config_type | config_file |
+    |          | local       | .basedump   |
+    | --global | global      | ~/.basedump |
     

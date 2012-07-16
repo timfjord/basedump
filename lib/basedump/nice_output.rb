@@ -9,6 +9,8 @@ module Basedump
       @shell.say "You should force ssl connection"
     rescue ::ActiveResource::UnauthorizedAccess
       @shell.say "Wrong credentials"
+    rescue ::Interrupt
+      @shell.say "Interrupted"
     rescue NoProjectError => e
       @shell.say e.message
     end
