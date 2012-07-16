@@ -2,5 +2,6 @@
 .bundle
 Gemfile.lock
 pkg/*
+tmp/
 # cucmber use this file for testing credentials
 .basecamp_credentials
