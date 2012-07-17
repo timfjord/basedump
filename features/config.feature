@@ -8,10 +8,12 @@ Feature: Configuration
     And I run `basedump configure <options>` interactively
     And I specify valid basecamp credetials
     Then the stdout should contain "Basedump <config_type> configuration was successfully stored"
-    And "<config_file>" should be valid config file
+    And a file named "<config_file>" should exist<bang>
+    And "<config_file>" should be valid config file<bang>
     
   Examples:
-    | options  | config_type | config_file |
-    |          | local       | .basedump   |
-    | --global | global      | ~/.basedump |
+    | options  | config_type | config_file | bang |
+    |          | local       | .basedump   |      |
+    | --global | global      | ~/.basedump | !    |
+
     
