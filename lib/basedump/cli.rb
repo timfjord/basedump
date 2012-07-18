@@ -6,7 +6,7 @@ module Basedump
     desc "configure", "Create configuration file"
     method_option :global, type: :boolean
     def configure
-      config_file = File.expand_path('.basedump', (options[:global] ? '~' : '.'))
+      config_file = options[:global] ? Basedump::Dumper.global_config : Basedump::Dumper.local_config
       
       opt = {}
       opt[:domain] = Basedump::Dumper::DOMAIN % 
@@ -24,6 +24,11 @@ module Basedump
       File.open(config_file, 'w') { |f| YAML.dump(opt, f) }
       
       say('Basedump %s configuration was successfully stored' % [options[:global] ? 'global' : 'local'])
+    end
+    
+    desc "log", "Log time to basecamp"
+    def log
+      
     end
   end
 end

@@ -15,5 +15,3 @@ Feature: Configuration
     | options  | config_type | config_file | bang |
     |          | local       | .basedump   |      |
     | --global | global      | ~/.basedump | !    |
-
-    
